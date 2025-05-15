@@ -27,7 +27,10 @@ void TicTacToe::Display() const
 	std::cout << " " << m_board[6] << " | " << m_board[7] << " | " << m_board[8] << "\n";
 	std::cout << "\n";
 
-	char symbol = m_currentPlayer == 0 ? 'X' : 'O';
+	char symbol;
+	if (m_currentPlayer == 0) symbol = 'X';
+	else symbol = 'O';
+
 	std::cout << "Player " << (m_currentPlayer + 1) << " (" << symbol << ")'s turn.\n";
 }
 
@@ -109,5 +112,8 @@ bool TicTacToe::CheckTie() const
 // Switches the current player
 void TicTacToe::SwitchPlayers()
 {
-	m_currentPlayer = (m_currentPlayer == 0) ? 1 : 0;
+	if (m_currentPlayer == 0)
+		m_currentPlayer = 1;
+	else
+		m_currentPlayer = 0;
 }
